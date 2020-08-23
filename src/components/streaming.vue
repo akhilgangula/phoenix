@@ -15,7 +15,7 @@
         <b-col sm md>
           <b-row v-for="(entry, index) in first" :key="index">
             <div class="mb-4">
-              <b-avatar variant="info" :src="entry.icon" class="mr-3" size="4rem"></b-avatar>
+              <b-avatar variant="info" :src="entry.icon" class="mr-3" size="3.2rem"></b-avatar>
               <b class="ml-1 text">{{entry.text}}</b>
             </div>
           </b-row>
@@ -23,7 +23,7 @@
         <b-col sm md class="ml-2">
           <b-row v-for="(entry, index) in highlights" :key="index">
             <div class="mb-4">
-              <b-avatar variant="info" :src="entry.icon" class="mr-3" size="4rem"></b-avatar>
+              <b-avatar variant="info" :src="entry.icon" class="mr-3" size="3.2rem"></b-avatar>
               <b class="ml-1 text">{{entry.text}}</b>
             </div>
           </b-row>
