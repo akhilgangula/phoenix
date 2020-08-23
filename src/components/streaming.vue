@@ -1,8 +1,8 @@
 <template>
   <div class="mt-5 mb-5">
     <b-container fluid>
-      <b-row>
-        <b-col lg="6" sm="12" md='12'>
+      <b-row no-gutters>
+        <b-col lg="5" sm="12" md='12'>
           <div class="ytb-cntrl">
             <b-embed
               type="iframe"
@@ -20,7 +20,7 @@
             </div>
           </b-row>
         </b-col>
-        <b-col sm md>
+        <b-col sm md class="ml-2">
           <b-row v-for="(entry, index) in highlights" :key="index">
             <div class="mb-4">
               <b-avatar variant="info" :src="entry.icon" class="mr-3" size="4rem"></b-avatar>

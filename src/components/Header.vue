@@ -42,9 +42,9 @@
             <b-nav-item class="hide-mobile" href="https://t.me/joinchat/SpoRiQwpcjM150BMYnSnGw">
               <i class="fab fa-telegram-plane"></i>
             </b-nav-item>
-            <b-nav-item class="hide-mobile" href="https://wa.me/message/VARH35TKLCKJE1">
+            <b-nav-item class="hide-mobile" target="blank" href="https://wa.me/message/VARH35TKLCKJE1">
               <!-- <i class="fab fa-whatsapp green"></i> let's Chat -->
-              <img src="./../assets/whatsapp.png" class="logo"/> <b>let's chat</b>
+              <img src="./../assets/whatsapp.png" class="logo"/> <b>Let's chat</b>
             </b-nav-item>
           </b-navbar-nav>
         </b-navbar-nav>
