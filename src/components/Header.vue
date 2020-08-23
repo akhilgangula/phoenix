@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="sm" style="background:black" type="dark">
-      <b-navbar-brand href="#">
+      <b-navbar-brand to="/">
         <img class="logo" :src="logo" alt="logo" />
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -12,7 +12,7 @@
             <b-nav-item class="mr-3" to="/">Home</b-nav-item>
             <b-nav-item class="mr-3" to="/about">About Us</b-nav-item>
 
-            <b-nav-item-dropdown class="mr-3 learn" text="Learn" right>
+            <b-nav-item-dropdown class="mr-3 learn" text="Courses" right>
               <b-dropdown-item to="/eng">Engineering</b-dropdown-item>
               <b-dropdown-item to="/mgmt">Management</b-dropdown-item>
             </b-nav-item-dropdown>
@@ -41,6 +41,10 @@
             </b-nav-item>
             <b-nav-item class="hide-mobile" href="https://t.me/joinchat/SpoRiQwpcjM150BMYnSnGw">
               <i class="fab fa-telegram-plane"></i>
+            </b-nav-item>
+            <b-nav-item class="hide-mobile" href="https://wa.me/message/VARH35TKLCKJE1">
+              <!-- <i class="fab fa-whatsapp green"></i> let's Chat -->
+              <img src="./../assets/whatsapp.png" class="logo"/> <b>let's chat</b>
             </b-nav-item>
           </b-navbar-nav>
         </b-navbar-nav>

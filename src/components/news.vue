@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h3 class="latest mb-4">Latest</h3>
     <div v-for="(feed, index) in topFeed" :key="index" class="mb-3">
       <b-overlay
         id="overlay-background"
@@ -76,6 +77,11 @@ export default {
       object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.latest {
+  font-weight: bold;
+  text-align: center;
 }
 
 @media (min-width: 1025px) {

@@ -67,6 +67,6 @@ export default {
 .img {
   object-fit: cover;
   width: 200px;
-  height: 500px;
+  height: 550px;
 }
 </style>

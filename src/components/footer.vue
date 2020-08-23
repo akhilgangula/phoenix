@@ -2,14 +2,14 @@
   <div class="mt-3">
     <b-row class="footer stack" no-gutters>
       <b-col lg="2" class="first">
-        <b-row>
-          <b-col>
+        <b-row no-gutters>
+          <b-col >
             <img :src="logo_left" class="logo" />
           </b-col>
         </b-row>
       </b-col>
       <b-col lg="8" class="mb-5 mt-2">
-        <b-row class="stack">
+        <b-row class="stack" no-gutters>
           <b-col class="mt-4 stats">
             <div class>
               <div class="counter">
