@@ -11,7 +11,6 @@
         :paginationEnabled="false"
         :navigationEnabled="true"
         :autoplayHoverPause="true"
-        :scrollPerPage="false"
       >
         <slide v-for="(banner, index) in banners" :key="index">
           <img class="d-block img-fluid img" :src="banner" alt="image slot" />

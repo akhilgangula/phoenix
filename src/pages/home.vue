@@ -1,6 +1,5 @@
 <template>
   <div>
-    <banner :src="top" :href="href"/>
     <div class="home">
       <div class="left">
         <show-case :banners="banners" />
@@ -11,29 +10,24 @@
     </div>
     <stat-comp :stats="stats" />
     <association />
-    <testimonials />
   </div>
 </template>
 <script>
 import ShowCase from "./../components/Showcase";
 import News from "./../components/news";
 import association from "./../components/associations";
-import banner from "./../components/banner";
-import testimonials from "./../components/testimonials";
 import statComp from "./../components/footer";
 import firebase from "firebase";
-import firebaseConfig from "./../config/keys.secret";
+import firebaseConfig from './../config/keys.secret'
 export default {
   data: function () {
     return {
       banners: [],
       stats: {},
       topFeed: [],
-      top: null,
-      href: '#'
     };
   },
-  components: { ShowCase, News, association, statComp, testimonials, banner },
+  components: { ShowCase, News, association, statComp },
   mounted: function () {
     if (!firebase.init) {
       firebase.initializeApp(firebaseConfig);
@@ -41,10 +35,10 @@ export default {
     }
     const db = firebase.firestore();
     const storage = firebase.storage();
+
     this.getStats(db);
     this.getBanners(storage);
     this.getTopFeed(db, storage);
-    this.getTopBanner(db,storage);
   },
   methods: {
     getTopFeed: function (db, storage) {
@@ -56,19 +50,6 @@ export default {
           this.topFeed.map((entry) => {
             this.getPics(storage, entry.img).then((url) => (entry.img = url));
           });
-        })
-        .catch((err) => console.log(err));
-    },
-    getTopBanner: function (db, storage) {
-      db.collection("phoenix")
-        .doc("home")
-        .get()
-        .then((doc) => {
-          this.top = doc.data()["topBanner"];
-          this.href = doc.data()["nav"];
-
-            this.getPics(storage, this.top).then((url) => (this.top = url));
-
         })
         .catch((err) => console.log(err));
     },
@@ -92,7 +73,6 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-
     getBanners: function (storage) {
       const storageRef = storage.ref();
       const listRef = storageRef.child("banners");

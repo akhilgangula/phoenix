@@ -1,40 +1,34 @@
 <template>
   <div class="wrapper mb-5">
-    <streaming />
-    <b-card-group deck v-for="(entry, i) in Math.ceil(feed.length / 2)" :key="i">
-      <feed-layout
-        v-for="(item, item_index) in feed.slice((entry - 1) * 2, entry * 2)"
-        :key="item_index"
-        md="6"
-        class="mt-4"
-        :title="item.title"
-        :caption="item.caption"
-        :imgUrl="item.img"
-        :paylink="item.link"
-        :description="item.description"
-        :load="load"
-        :doclink="item.docs"
-        @complete="complete"
-      />
-    </b-card-group>
+    <b-row>
+      <b-col v-for="(entry,index) in feed" :key="'a'+index" md="6" class="mt-4">
+        <feed-layout
+          :title="entry.title"
+          :caption="entry.caption"
+          :imgUrl="entry.img"
+          :paylink="entry.link"
+          :description="entry.description"
+          :load=load
+          :doclink="entry.docs"
+          @complete="complete"
+        />
+      </b-col>
+    </b-row>
   </div>
 </template>
 <script>
 import firebase from "firebase";
 import feedLayout from "./../components/feed";
-import streaming from "./../components/streaming";
-import firebaseConfig from "./../config/keys.secret";
+import firebaseConfig from './../config/keys.secret'
 export default {
   components: {
     feedLayout,
-    streaming,
   },
   data: function () {
     return {
-      feed: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+      feed: [1,2,3,4,5,6,7,8,9,0],
       load: true,
-      counter: 0,
-      toBeLoad: 10
+      counter:0
     };
   },
   mounted: function () {
@@ -48,10 +42,10 @@ export default {
     this.getAllFeed(db, storage);
   },
   methods: {
-    complete: function () {
-      this.counter++;
-      if (this.counter === this.toBeLoad) {
-        this.load = false;
+    complete: function(){
+      this.counter ++;
+      if(this.counter === this.feed.length) {
+        this.load = false
       }
     },
     getAllFeed: function (db, storage) {
@@ -64,11 +58,7 @@ export default {
             this.getPics(storage, entry.img).then((url) => (entry.img = url));
             this.getDocs(storage, entry.docs).then((url) => (entry.docs = url));
           });
-          this.toBeLoad = this.feed.length;
-          if(this.feed.length %2 !== 0) {
-            this.feed.push([]);
-            this.toBeLoad--;
-          }
+          console.log(this.feed);
         })
         .catch((err) => console.log(err));
     },
@@ -97,6 +87,6 @@ export default {
 </script>
 <style scoped>
 .wrapper {
-  margin: 0 5%;
+  margin:0 5%;
 }
 </style>
